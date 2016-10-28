@@ -1,0 +1,15 @@
+{
+  "name": "sperez/english_calculator",
+  "description": "This program calculates the sum of two numbers given in English",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Sergio Perez",
+      "email": "seperezf@unal.edu.co"
+    }
+  ],
+  "require": {
+    "zendframework/zendframework": "^3.0"
+  }
+}
