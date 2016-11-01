@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "43447abbce92b80528f6ff61629e77fe",
+    "content-hash": "99b4e836bee25aabf8624faaa36ef0a5",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -89,16 +89,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.4",
+            "version": "1.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f"
+                "reference": "399c1f9781e222f6eb6cc238796f5200d1b7f108"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
-                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/399c1f9781e222f6eb6cc238796f5200d1b7f108",
+                "reference": "399c1f9781e222f6eb6cc238796f5200d1b7f108",
                 "shasum": ""
             },
             "require": {
@@ -127,7 +127,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2016-09-16T13:37:59+00:00"
+            "time": "2016-10-31T17:19:45+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -392,12 +392,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "8ca687f6b13f38f0593fe26a84de00ef4fd82c51"
+                "reference": "6cba06ff75a1a63a71033e1a01b89056f3af1e8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/8ca687f6b13f38f0593fe26a84de00ef4fd82c51",
-                "reference": "8ca687f6b13f38f0593fe26a84de00ef4fd82c51",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6cba06ff75a1a63a71033e1a01b89056f3af1e8d",
+                "reference": "6cba06ff75a1a63a71033e1a01b89056f3af1e8d",
                 "shasum": ""
             },
             "require": {
@@ -447,7 +447,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-10-03 07:41:08"
+            "time": "2016-11-01 05:06:24"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2042,7 +2042,7 @@
                 "db",
                 "zf2"
             ],
-            "time": "2016-08-09T19:33:34+00:00"
+            "time": "2016-08-09 19:33:34"
         },
         {
             "name": "zendframework/zend-debug",
@@ -2635,7 +2635,7 @@
                 "http",
                 "zf2"
             ],
-            "time": "2016-08-08T15:10:07+00:00"
+            "time": "2016-08-08 15:10:07"
         },
         {
             "name": "zendframework/zend-hydrator",
@@ -2904,7 +2904,7 @@
                 "json",
                 "zf2"
             ],
-            "time": "2016-04-12T21:11:28+00:00"
+            "time": "2016-04-12 21:11:28"
         },
         {
             "name": "zendframework/zend-json-server",
@@ -3400,7 +3400,7 @@
                 "mvc",
                 "zf2"
             ],
-            "time": "2016-08-29T18:43:40+00:00"
+            "time": "2016-08-29 18:43:40"
         },
         {
             "name": "zendframework/zend-mvc-console",
@@ -4770,7 +4770,7 @@
                 "test",
                 "zf2"
             ],
-            "time": "2016-09-06T16:37:57+00:00"
+            "time": "2016-09-06 16:37:57"
         },
         {
             "name": "zendframework/zend-text",

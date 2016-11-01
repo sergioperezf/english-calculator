@@ -1,11 +1,4 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- */
 
 /**
  * This autoloading setup is really more complicated than it needs to be for most
@@ -25,22 +18,22 @@ if (class_exists('Zend\Loader\AutoloaderFactory')) {
     return;
 }
 
-$zf2Path = false;
+$zf3Path = false;
 
 if (is_dir('vendor/ZF2/library')) {
-    $zf2Path = 'vendor/ZF2/library';
-} elseif (getenv('ZF2_PATH')) {      // Support for ZF2_PATH environment variable or git submodule
-    $zf2Path = getenv('ZF2_PATH');
-} elseif (get_cfg_var('zf2_path')) { // Support for zf2_path directive value
-    $zf2Path = get_cfg_var('zf2_path');
+    $zf3Path = 'vendor/ZF2/library';
+} elseif (getenv('ZF3_PATH')) {      // Support for ZF2_PATH environment variable or git submodule
+    $zf3Path = getenv('ZF3_PATH');
+} elseif (get_cfg_var('zf3_path')) { // Support for zf2_path directive value
+    $zf3Path = get_cfg_var('zf3_path');
 }
 
-if ($zf2Path) {
+if ($zf3Path) {
     if (isset($loader)) {
-        $loader->add('Zend', $zf2Path);
-        $loader->add('ZendXml', $zf2Path);
+        $loader->add('Zend', $zf3Path);
+        $loader->add('ZendXml', $zf3Path);
     } else {
-        include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
+        include $zf3Path . '/Zend/Loader/AutoloaderFactory.php';
         Zend\Loader\AutoloaderFactory::factory(array(
             'Zend\Loader\StandardAutoloader' => array(
                 'autoregister_zf' => true
@@ -50,5 +43,5 @@ if ($zf2Path) {
 }
 
 if (!class_exists('Zend\Loader\AutoloaderFactory')) {
-    throw new RuntimeException('Unable to load ZF2. Run `php composer.phar install` or define a ZF2_PATH environment variable.');
+    throw new RuntimeException('Unable to load ZF3. Run `php composer.phar install` or define a ZF3_PATH environment variable.');
 }
