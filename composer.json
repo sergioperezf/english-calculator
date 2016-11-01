@@ -11,5 +11,8 @@
   ],
   "require": {
     "zendframework/zendframework": "^3.0"
+  },
+  "require-dev": {
+    "zendframework/zend-test": "^3.0"
   }
 }

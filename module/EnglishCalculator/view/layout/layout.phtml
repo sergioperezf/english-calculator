@@ -1,0 +1,29 @@
+<?php
+setlocale(LC_TIME, ['es_ES.UTF-8', 'es_ES@euro', 'es_ES', 'spanish']);
+echo $this->doctype();
+?>
+
+<html lang="es">
+<head>
+    <meta name="description" content="English Calculator. Calculates the sum of two numbers given in English.">
+    <meta name="author" content="Sergio Perez">
+    <meta charset="utf-8">
+    <?php echo $this->headTitle('English Calculator')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/skeleton.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>English Calculator</h1>
+    <?php echo $this->content; ?>
+</div> <!-- /container -->
+
+<?php echo $this->headScript()
+    ->prependFile($this->basePath() . '/assets/js/Module.js', 'text/javascript')
+    ->prependFile($this->basePath() . '/assets/js/jQuery.js')
+; ?>
+<?php echo $this->inlineScript() ?>
+</body>
+</html>

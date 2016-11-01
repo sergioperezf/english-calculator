@@ -3,6 +3,8 @@
 return array(
     // This should be an array of module namespaces used in the application.
     'modules' => array(
+        'Zend\Form',
+        'Zend\Router',
         'EnglishCalculator'
     ),
     // These are various options for the listeners attached to the ModuleManager
