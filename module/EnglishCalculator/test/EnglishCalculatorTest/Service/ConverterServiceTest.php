@@ -26,7 +26,13 @@ class ConverterServiceTest extends TestCase
         $this->assertEquals(20, $this->converterService->convertWordToNumber('twenty'));
         $this->assertEquals(203, $this->converterService->convertWordToNumber('two hundred three'));
         $this->assertEquals(25, $this->converterService->convertWordToNumber('twenty five'));
-        $this->assertEquals(0, $this->converterService->convertWordToNumber('zero'));
+        $this->assertEquals(112, $this->converterService->convertWordToNumber('one hundred twelve'));
+        $this->assertEquals(36000048, $this->converterService->convertWordToNumber('thirty six million forty eight'));
+        $this->assertEquals(347116, $this->converterService->convertWordToNumber('three hundred forty seven thousand one hundred sixteen'));
+        $this->assertEquals(25000000, $this->converterService->convertWordToNumber('twenty five million'));
+        $this->assertEquals(42, $this->converterService->convertWordToNumber('forty two'));
+        $this->assertEquals(400002000, $this->converterService->convertWordToNumber('four hundred million two thousand'));
+        $this->assertEquals(400000002, $this->converterService->convertWordToNumber('four hundred million two'));
     }
 
     public function testConvertNumberToWord()

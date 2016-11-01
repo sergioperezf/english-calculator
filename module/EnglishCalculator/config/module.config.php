@@ -36,7 +36,8 @@ return [
     ],
     'service_manager' => [
         'invokables' => [
-            'EnglishCalculator.Service.Calculator' => 'EnglishCalculator\Service\CalculatorService'
+            'EnglishCalculator.Service.Calculator' => 'EnglishCalculator\Service\CalculatorService',
+            'EnglishCalculator.Service.Converter' => 'EnglishCalculator\Service\ConverterService'
         ]
     ]
 ];

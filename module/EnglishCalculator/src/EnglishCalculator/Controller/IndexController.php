@@ -3,6 +3,7 @@
 namespace EnglishCalculator\Controller;
 
 use EnglishCalculator\Service\CalculatorServiceInterface;
+use EnglishCalculator\Service\ConverterServiceInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -17,15 +18,21 @@ class IndexController extends AbstractActionController
      */
     protected $calculatorService;
 
-    public function __construct(CalculatorServiceInterface $calculatorService)
+    /**
+     * @var ConverterServiceInterface
+     */
+    protected $converterService;
+
+    public function __construct(CalculatorServiceInterface $calculatorService, ConverterServiceInterface $converterService)
     {
         $this->calculatorService = $calculatorService;
+        $this->converterService = $converterService;
     }
 
     public function indexAction()
     {
         $view = new ViewModel([
-            'result' => $this->calculatorService->sum(3, 8)
+            'result' => $this->converterService->convertWordToNumber('twenty five')
         ]);
         $view->setTemplate('pages/index');
         return $view;

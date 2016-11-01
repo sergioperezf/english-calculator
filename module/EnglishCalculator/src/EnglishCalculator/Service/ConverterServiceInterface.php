@@ -9,10 +9,10 @@ namespace EnglishCalculator\Service;
 interface ConverterServiceInterface
 {
     /**
-     * @param string $word
+     * @param string $words
      * @return integer
      */
-    public function convertWordToNumber($word);
+    public function convertWordToNumber($words);
 
     /**
      * @param integer $number
