@@ -19,6 +19,11 @@ echo $this->doctype();
     <h1>English Calculator</h1>
     <?php echo $this->content; ?>
 </div> <!-- /container -->
+
+<?php echo $this->headScript()
+    ->prependFile($this->basePath() . '/assets/js/Module.js', 'text/javascript')
+    ->prependFile($this->basePath() . '/assets/js/jQuery.js')
+; ?>
 <?php echo $this->inlineScript() ?>
 </body>
 </html>
