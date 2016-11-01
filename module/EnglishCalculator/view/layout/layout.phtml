@@ -1,0 +1,20 @@
+<?php
+setlocale(LC_TIME, ['es_ES.UTF-8', 'es_ES@euro', 'es_ES', 'spanish']);
+echo $this->doctype();
+?>
+
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle('English Calculator')->setSeparator(' - ')->setAutoEscape(false) ?>
+</head>
+<body>
+<div id="top"></div>
+<div id="bottom"></div>
+<div class="container">
+    <?php echo $this->content; ?>
+
+</div> <!-- /container -->
+<?php echo $this->inlineScript() ?>
+</body>
+</html>
