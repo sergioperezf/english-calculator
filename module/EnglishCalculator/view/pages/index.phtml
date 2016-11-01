@@ -1,2 +1,12 @@
-Hello world!
-<?= $result ?>
+<?php
+
+$form->setAttribute('action', $this->url('sum/sum_submit'));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+echo $this->formRow($form->get('x'));
+echo $this->formRow($form->get('y'));
+$form->get('submit')->setAttribute('value', 'Sum!');
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();

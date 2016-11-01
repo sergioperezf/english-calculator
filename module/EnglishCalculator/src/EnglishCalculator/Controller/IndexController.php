@@ -2,6 +2,8 @@
 
 namespace EnglishCalculator\Controller;
 
+use EnglishCalculator\Exception\InvalidArgumentException;
+use EnglishCalculator\Form\SumForm;
 use EnglishCalculator\Service\CalculatorServiceInterface;
 use EnglishCalculator\Service\ConverterServiceInterface;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -29,26 +31,48 @@ class IndexController extends AbstractActionController
         $this->converterService = $converterService;
     }
 
+    /**
+     * Home page.
+     * @return ViewModel
+     */
     public function indexAction()
     {
+        $form = new SumForm();
         $view = new ViewModel([
-            'result' => $this->converterService->convertWordToNumber('twenty five')
+            'form' => $form
         ]);
         $view->setTemplate('pages/index');
         return $view;
     }
 
+    /**
+     * Form handler
+     *
+     * @return ViewModel
+     * @throws \Exception
+     */
     public function sumAction()
     {
-        $view = new ViewModel([
-            'result' => $this->converterService->convertNumberToWord(
-                $this->calculatorService->sum(
-                    $this->converterService->convertWordToNumber('forty seven'),
-                    $this->converterService->convertWordToNumber('fifty three')
-                )
-            )
-        ]);
-        $view->setTemplate('pages/sum');
-        return $view;
+        $form = new SumForm();
+        $request = $this->getRequest();
+        $form->setData($request->getPost());
+        if ($form->isValid()) {
+            try {
+                $data = $form->getData();
+                $x = $this->converterService->convertWordToNumber($data['x']);
+                $y = $this->converterService->convertWordToNumber($data['y']);
+                $result = $this->calculatorService->sum($x, $y);
+            } catch (InvalidArgumentException $e) {
+                $result = 0;
+            }
+
+            $view = new ViewModel([
+                'result' => $this->converterService->convertNumberToWord($result)
+            ]);
+            $view->setTemplate('pages/sum');
+            return $view;
+        } else {
+            throw new \Exception('Invalid form.');
+        }
     }
 }
