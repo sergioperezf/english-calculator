@@ -1,2 +1,24 @@
-Hello world!
-<?= $result ?>
+<div class="row">
+    <div class="six columns">
+        <?php
+        // Set view attributes
+        $form->setAttribute('action', $this->url('sum/sum_submit'));
+        $form->get('x')->setAttributes(['id' => 'x']);
+        $form->get('y')->setAttributes(['id' => 'y']);
+        $form->prepare();
+
+        echo $this->form()->openTag($form);?>
+        <?= $this->formLabel($form->get('x')); ?>
+        <?= $this->formText($form->get('x')); ?>
+        <?= $this->formLabel($form->get('y')); ?>
+        <?= $this->formText($form->get('y')); ?>
+        <?php
+        $form->get('submit')->setAttribute('value', 'Sum!');
+        echo $this->formSubmit($form->get('submit'));
+        echo $this->form()->closeTag();
+        ?>
+    </div>
+    <div class="six columns">
+
+    </div>
+</div>

@@ -16,6 +16,16 @@ class ConverterService implements ConverterServiceInterface
      */
     public function convertWordToNumber($words)
     {
+        $singles = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+        $teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+        $tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+        $powers = ["", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion"];
+
+        foreach(explode(' ', $words) as $word) {
+            if (!in_array($word, array_merge($singles, $teens, $tens, $powers, ['and', 'hundred']))) {
+                throw new InvalidArgumentException('Invalid number');
+            }
+        }
         if (!$words) {
             return 0;
         }
@@ -24,11 +34,6 @@ class ConverterService implements ConverterServiceInterface
         $words .= ' ';
 
         $number = 0;
-
-        $singles = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-        $teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
-        $tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
-        $powers = ["", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion"];
 
         for ($i = count($powers) - 1; $i >= 0; $i--) {
             $thisPower = $powers[$i];
@@ -44,15 +49,13 @@ class ConverterService implements ConverterServiceInterface
             }
         }
 
-        {
-            $index = strpos($words, "hundred");
+        $index = strpos($words, "hundred");
 
-            if ($index !== false && $index >= 0 && $words[$index + strlen("hundred")] == ' ')
-            {
-                $count = $this->convertWordToNumber(substr($words, 0, $index));
-                $number += $count * 100;
-                $words = substr($words, $index);
-            }
+        if ($index !== false && $index >= 0 && $words[$index + strlen("hundred")] == ' ')
+        {
+            $count = $this->convertWordToNumber(substr($words, 0, $index));
+            $number += $count * 100;
+            $words = substr($words, $index);
         }
 
         for ($i = count($tens) - 1; $i >= 0; $i--)
@@ -99,7 +102,6 @@ class ConverterService implements ConverterServiceInterface
                 }
             }
         }
-
         return $number;
     }
 
