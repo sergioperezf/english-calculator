@@ -10,7 +10,6 @@ use EnglishCalculator\Exception\InvalidArgumentException;
  */
 class ConverterService implements ConverterServiceInterface
 {
-
     /**
      * @param string $words
      * @return integer
@@ -131,6 +130,12 @@ class ConverterService implements ConverterServiceInterface
      *
      * @param string $integer
      * @return string
+     *
+     * This function contains small modifications to match interoperability constraints:
+     *  No comma after thousandths.
+     *  No hyphen after tens.
+     *  No support for negative numbers.
+     *  No support for decimals.
      */
     private function convertNumber($integer)
     {

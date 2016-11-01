@@ -37,4 +37,18 @@ class IndexController extends AbstractActionController
         $view->setTemplate('pages/index');
         return $view;
     }
+
+    public function sumAction()
+    {
+        $view = new ViewModel([
+            'result' => $this->converterService->convertNumberToWord(
+                $this->calculatorService->sum(
+                    $this->converterService->convertWordToNumber('forty seven'),
+                    $this->converterService->convertWordToNumber('fifty three')
+                )
+            )
+        ]);
+        $view->setTemplate('pages/sum');
+        return $view;
+    }
 }

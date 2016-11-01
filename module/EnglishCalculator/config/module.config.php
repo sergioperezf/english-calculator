@@ -17,7 +17,26 @@ return [
                         'action' => 'index'
                     ]
                 ]
-            ]
+            ],
+            'sum' => [
+                'type' => 'literal',
+                'options' => [
+                    'route' => '/sum',
+                    'defaults' => [
+                        'controller' => 'EnglishCalculator.Controller.Index',
+                        'action' => 'sum'
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'sum_submit' =>[
+                        'type' => 'method',
+                        'options' => [
+                            'verb' => 'post'
+                        ]
+                    ]
+                ]
+            ],
         ]
     ],
     'view_manager' => [
