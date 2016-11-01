@@ -2,8 +2,8 @@
 
 return [
     'controllers' => [
-        'invokables' => [
-            'EnglishCalculator\IndexController' => 'EnglishCalculator\Controller\IndexController'
+        'factories' => [
+            'EnglishCalculator.Controller.Index' => 'EnglishCalculator\Factory\IndexControllerFactory'
         ]
     ],
     'router' => [
@@ -13,7 +13,7 @@ return [
                 'options' => [
                     'route' => '/',
                     'defaults' => [
-                        'controller' => 'EnglishCalculator\IndexController',
+                        'controller' => 'EnglishCalculator.Controller.Index',
                         'action' => 'index'
                     ]
                 ]
@@ -34,4 +34,9 @@ return [
             __DIR__.'/../view'
         ],
     ],
+    'service_manager' => [
+        'invokables' => [
+            'EnglishCalculator.Service.Calculator' => 'EnglishCalculator\Service\CalculatorService'
+        ]
+    ]
 ];
