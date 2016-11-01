@@ -7,6 +7,7 @@ use EnglishCalculator\Form\SumForm;
 use EnglishCalculator\Service\CalculatorServiceInterface;
 use EnglishCalculator\Service\ConverterServiceInterface;
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\JsonModel;
 use Zend\View\Model\ViewModel;
 
 /**
@@ -66,7 +67,7 @@ class IndexController extends AbstractActionController
                 $result = 0;
             }
 
-            $view = new ViewModel([
+            $view = new JsonModel([
                 'result' => $this->converterService->convertNumberToWord($result)
             ]);
             $view->setTemplate('pages/sum');
