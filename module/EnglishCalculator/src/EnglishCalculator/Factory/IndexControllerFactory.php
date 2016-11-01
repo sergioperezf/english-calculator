@@ -31,6 +31,7 @@ class IndexControllerFactory implements FactoryInterface
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         $calculatorService = $container->get('EnglishCalculator.Service.Calculator');
-        return new IndexController($calculatorService);
+        $converterService = $container->get('EnglishCalculator.Service.Converter');
+        return new IndexController($calculatorService, $converterService);
     }
 }
