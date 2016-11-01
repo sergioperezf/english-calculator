@@ -37,11 +37,18 @@ class ConverterServiceTest extends TestCase
 
     public function testConvertNumberToWord()
     {
-        $this->assertEquals('four hundred', $this->converterService->convertWordToNumber(400));
-        $this->assertEquals('zero', $this->converterService->convertWordToNumber(0));
-        $this->assertEquals('one million six hundred thirty seven thousand two hundred fifteen', $this->converterService->convertWordToNumber(1637215));
-        $this->assertEquals('eighteen', $this->converterService->convertWordToNumber(18));
-        $this->assertEquals('forty', $this->converterService->convertWordToNumber(40));
+        $this->assertEquals('four hundred', $this->converterService->convertNumberToWord(400));
+        $this->assertEquals('zero', $this->converterService->convertNumberToWord(0));
+        $this->assertEquals('one million six hundred and thirty seven thousand two hundred and fifteen', $this->converterService->convertNumberToWord(1637215));
+        $this->assertEquals('eighteen', $this->converterService->convertNumberToWord(18));
+        $this->assertEquals('forty', $this->converterService->convertNumberToWord(40));
+    }
 
+    public function testInteroperability()
+    {
+        $this->assertEquals(1928793, $this->converterService->convertWordToNumber($this->converterService->convertNumberToWord(1928793)));
+        $this->assertEquals(2498, $this->converterService->convertWordToNumber($this->converterService->convertNumberToWord(2498)));
+        $this->assertEquals(29030, $this->converterService->convertWordToNumber($this->converterService->convertNumberToWord(29030)));
+        $this->assertEquals(2001, $this->converterService->convertWordToNumber($this->converterService->convertNumberToWord(2001)));
     }
 }
