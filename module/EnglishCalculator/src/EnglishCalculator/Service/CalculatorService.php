@@ -1,6 +1,7 @@
 <?php
 
 namespace EnglishCalculator\Service;
+use EnglishCalculator\Exception\InvalidArgumentException;
 
 /**
  * Class CalculatorService
@@ -17,6 +18,9 @@ class CalculatorService implements CalculatorServiceInterface
      */
     public function sum($x, $y)
     {
+        if (!is_int($x) || !is_int($y)) {
+            throw new InvalidArgumentException('Arguments must be integers');
+        }
         return $x + $y;
     }
 }
